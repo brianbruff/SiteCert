@@ -22,18 +22,16 @@
                     <ul class="nav">
                         @if (User.Identity.IsAuthenticated)
                         {                              
-                            if (User.IsInRole("CompanyAdmin")){
-                                
+                            if (User.IsInRole(SiteCert.Utils.Security.RoleManager.COMPANY_ROLE)){                                
                                 <li>@Html.ActionLink("Staff", "Index", "Staff", new { area = string.Empty }, new { })</li>
                                 <li>@Html.ActionLink("Training", "About", "Home", new { area = string.Empty }, new { })</li>
                                 <li>@Html.ActionLink("Equipment", "Contact", "Home", new { area = string.Empty }, new { })</li>
                                 <li>@Html.ActionLink("Machines", "Contact", "Home", new { area = string.Empty }, new { })</li>
                                 <li>@Html.ActionLink("Documents", "Contact", "Home", new { area = string.Empty }, new { })</li>                                                    
                                 <li>@Html.ActionLink("Admin", "Contact", "Home", new { area = string.Empty }, new { })</li>                                                    
-                            } 
-                            //else
-                            if (User.IsInRole("SuperAdmin")){                                
-                                <li>@Html.ActionLink("SuperAdmin", "Index", "SADashboard", new { area = "SuperAdmin" }, new { })</li>                                
+                            }                             
+                            if (User.IsInRole(SiteCert.Utils.Security.RoleManager.ADMIN_ROLE)){                                
+                                <li>@Html.ActionLink("SuperAdmin", "Index", "SADashboard")</li>                                
                             }                                                    
 
                         }

@@ -19,7 +19,7 @@ namespace SiteCert.Controllers
     public class AccountController : Controller
     {
         public AccountController()
-        {
+        {            
             IdentityStore = new IdentityStoreManager(new IdentityStoreContext(new SiteCertDbContext()));
             AuthenticationManager = new IdentityAuthenticationManager(IdentityStore);
         }
@@ -89,7 +89,10 @@ namespace SiteCert.Controllers
                         if (model.UserName.ToLower() == "admin")
                         {
                             if (await RoleManager.InitAppRoles(this.IdentityStore))
-                                await IdentityStore.Context.Roles.AddUserToRole(RoleManager.ADMIN_ROLE, "Admin");
+                            {
+                                await IdentityStore.Context.Roles.AddUserToRole(RoleManager.ADMIN_ROLE, model.UserName);
+                                await IdentityStore.Context.SaveChanges();
+                            }
                         }
                         await AuthenticationManager.SignIn(HttpContext, user.Id, isPersistent: false);
                         return RedirectToAction("Index", "Home");

@@ -19,6 +19,8 @@ namespace SiteCert.Utils.Security
             if (!(await identityStore.Context.Roles.RoleExists(COMPANY_ROLE)))
                 await identityStore.Context.Roles.CreateRole(new Role(COMPANY_ROLE));
 
+            await identityStore.Context.SaveChanges();
+
             return true;
         }
 
