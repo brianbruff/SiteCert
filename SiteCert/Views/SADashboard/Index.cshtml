@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Super Admin Page";
+}
+
+
+<div class="row">
+    <div class="span3">
+        <h2>Companies</h2>
+        @Html.ActionLink("Manage »", "Index", "SACompany", new { @class = "btn" })
+    </div>
+    <div class="span3">
+        <h2>Users</h2>
+        @Html.ActionLink("Manage »", "Index", "SAUsers", new { @class = "btn" })
+    </div>
+    <div class="span6">
+        <h2>
+            Lorem ipsum dolor sit.
+        </h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus.
+        </p>
+        <p><a class="btn" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>

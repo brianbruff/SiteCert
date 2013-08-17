@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Site Cert 9000", "Index", "Home", new { area = string.Empty }, new { @class = "brand" })
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        @if (User.Identity.IsAuthenticated)
+                        {                              
+                            if (User.IsInRole("CompanyAdmin")){
+                                
+                                <li>@Html.ActionLink("Staff", "Index", "Staff", new { area = string.Empty }, new { })</li>
+                                <li>@Html.ActionLink("Training", "About", "Home", new { area = string.Empty }, new { })</li>
+                                <li>@Html.ActionLink("Equipment", "Contact", "Home", new { area = string.Empty }, new { })</li>
+                                <li>@Html.ActionLink("Machines", "Contact", "Home", new { area = string.Empty }, new { })</li>
+                                <li>@Html.ActionLink("Documents", "Contact", "Home", new { area = string.Empty }, new { })</li>                                                    
+                                <li>@Html.ActionLink("Admin", "Contact", "Home", new { area = string.Empty }, new { })</li>                                                    
+                            } 
+                            //else
+                            if (User.IsInRole("SuperAdmin")){                                
+                                <li>@Html.ActionLink("SuperAdmin", "Index", "SADashboard", new { area = "SuperAdmin" }, new { })</li>                                
+                            }                                                    
+
+                        }
+                        
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

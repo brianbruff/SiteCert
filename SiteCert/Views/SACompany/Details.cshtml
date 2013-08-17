@@ -1,0 +1,73 @@
+@model SiteCert.Models.Company
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+	<legend>Company</legend>
+	<dl>
+		<dt>
+			@Html.DisplayNameFor(model => model.Name)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Name)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Address)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Address)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.PhoneNumber)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.PhoneNumber)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.FaxNumber)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.FaxNumber)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Email)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Email)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Website)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Website)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.CompanyContactUserId)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.CompanyContactUserId)
+		</dd>
+
+	</dl>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.CompanyID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
